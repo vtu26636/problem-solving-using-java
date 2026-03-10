@@ -1,0 +1,23 @@
+import java.util.Scanner;
+import java.util.function.Predicate;
+
+public class PalindromeNumber {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+
+        Predicate<Integer> isPalindrome = (n) -> {
+            int temp=n,rev=0;
+
+            while(n>0){
+                rev=rev*10+n%10;
+                n/=10;
+            }
+
+            return temp==rev;
+        };
+
+        System.out.println(isPalindrome.test(num));
+    }
+}
