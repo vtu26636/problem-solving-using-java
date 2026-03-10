@@ -1,0 +1,21 @@
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class MostFrequentDigit {
+    public static void main(String[] args) {
+
+        Scanner sc=new Scanner(System.in);
+        String num=sc.next();
+
+        Map<Character,Long> freq=
+                num.chars()
+                .mapToObj(c->(char)c)
+                .collect(Collectors.groupingBy(c->c,Collectors.counting()));
+
+        char maxDigit=
+                Collections.max(freq.entrySet(),
+                Map.Entry.comparingByValue()).getKey();
+
+        System.out.println(maxDigit);
+    }
+}
