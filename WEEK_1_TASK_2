@@ -1,0 +1,25 @@
+import java.util.Scanner;
+import java.util.function.Function;
+
+public class Fibonacci {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        Function<Integer,Integer> fib = (num) -> {
+            if(num<=1) return num;
+
+            int a=0,b=1,c=0;
+
+            for(int i=2;i<=num;i++){
+                c=a+b;
+                a=b;
+                b=c;
+            }
+            return b;
+        };
+
+        System.out.println(fib.apply(n));
+    }
+}
